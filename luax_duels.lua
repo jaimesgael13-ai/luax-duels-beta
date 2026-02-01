@@ -1,3 +1,15 @@
+-- KILL SWITCH
+local KILL_SWITCH_URL =
+	"https://raw.githubusercontent.com/jaimesgael13-ai/luax-duels-beta/main/kill_switch.txt"
+
+local ok, status = pcall(function()
+	return game:HttpGet(KILL_SWITCH_URL)
+end)
+
+if not ok or string.lower(status):gsub("%s+", "") ~= "true" then
+	warn("LUAX DUELS is currently disabled.")
+	return
+end
 -- SERVICES
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
